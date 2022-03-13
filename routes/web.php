@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
+});
+
+Route::get('/series', function () {
+
+  $serires = [
+    'Grey\'s Anatomy',
+    'Lost',
+    'Agents of SHIELD'
+  ];
+
+  $html = "<ul>";
+  foreach ($serires as $serie) {
+
+    $html .= "<li>$serie</li>";
+  }
+  $html .= "<ul>";
+
+  return $html;
 });
