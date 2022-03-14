@@ -9,20 +9,15 @@ class SeriesController extends Controller
 
   public function index(Request $request)
   {
-    $serires = [
+    $series = [
       'Grey\'s Anatomy',
       'Lost',
       'Agents of SHIELD',
       $request->query('serie')
     ];
 
-    $html = "<ul>";
-    foreach ($serires as $serie) {
-
-      $html .= "<li>$serie</li>";
-    }
-    $html .= "<ul>";
-
-    return $html;
+    return view('series.index', [
+      'series' => $series
+    ]);
   }
 }
