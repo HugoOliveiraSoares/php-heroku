@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SeriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,20 +18,4 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('/series', function () {
-
-  $serires = [
-    'Grey\'s Anatomy',
-    'Lost',
-    'Agents of SHIELD'
-  ];
-
-  $html = "<ul>";
-  foreach ($serires as $serie) {
-
-    $html .= "<li>$serie</li>";
-  }
-  $html .= "<ul>";
-
-  return $html;
-});
+Route::get('/series', [SeriesController::class, 'listarSeries']);
