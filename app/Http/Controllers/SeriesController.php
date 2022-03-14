@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 class SeriesController extends Controller
 {
 
-  public function listarSeries()
+  public function index(Request $request)
   {
     $serires = [
       'Grey\'s Anatomy',
       'Lost',
-      'Agents of SHIELD'
+      'Agents of SHIELD',
+      $request->query('serie')
     ];
 
     $html = "<ul>";
